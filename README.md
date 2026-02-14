@@ -1,7 +1,5 @@
 # 项目简介
-> **注意！仓库内模板代码尚未完善，先别急着clone。**
-
-极创组26寒假趣味项目，基于Godot4.4进行开发。目前我(Essenpphire)只实现了部分功能~~其实是以前练RPG的demo~~，具体特性如下：
+极创组26寒假趣味项目，基于Godot4.4进行开发，现有特性如下：
 1. 角色控制系统
 	- **移动与机动**：支持角色在四个方向的流畅移动 + 集成疾跑功能
 	- **基础战斗**：实现了角色的基础攻击动作与判定
@@ -45,16 +43,19 @@
 将项目clone至本地，用godot导入即可。本项目采用单例架构开发，将游戏的各个系统抽象为`XxxManager`类，保证它们只被初始化一次，系统说明以及分工如下：
 
 ## 系统架构
+将项目clone至本地，用godot导入即可。本项目采用单例架构开发，将游戏的各个系统抽象为`XxxManager`类，保证它们只被初始化一次，系统说明以及分工如下：
+
+## 系统架构
 1. **游戏顶层系统 GameManager**
-	- 预加载场景 + 游戏全局状态机（运行、暂停、菜单、游戏结束）
+	- 预加载/管理游戏场景
+	- 维护游戏全局状态机（运行、暂停、菜单、游戏结束）
 	- 【暂定】特效控制，例如：镜头晃动、黑屏、闪屏等
 
 2. **事件总线 EventBus**
 	- 定义游戏所有信号，负责协调各个Manager之间的通信
 
 3. **地图生成系统 MapManager**
-	- ~~使用噪声算法在网格内生成地牢地图~~、敌人
-    - 地图可以先预制好，负责生成敌人即可
+	- 使用噪声算法在网格内生成地牢地图、敌人
 	- 管理传送点、隐藏房间和特殊区域
 
 4. **数据系统 StorageManager**
@@ -65,8 +66,6 @@
 
 6. **战斗系统 BattleManager**
 	- 处理伤害计算、命中判定和战斗反馈
-    - 要结合实体Entity基类实现受伤和死亡判定功能
-    	- e.g. Entity.handleDeath(), Entity.handleHurt()
 	- 管理战斗时的buff
 
 7. 对话系统 DialogManager
@@ -77,7 +76,7 @@
 	- 更新所有游戏界面：HUD（血条、蓝条）、暂停菜单、道具栏、升级选择界面
 
 9. ~~场景管理系统 SceneManager~~
-	*项目还没这么复杂，暂时用不上*
+	*合并至GameManager里*
 	- 管理游戏场景的加载、切换和卸载（如：标题、地牢、商店、战斗房间）
 	- 处理场景间的过渡和通信
 
@@ -130,7 +129,13 @@
 
 # 开发规范
 ## 命名
-- 变量：小写下划线命名法 `snake_case`
+- 变量：小写下划线命名法 `snake_case`，标出变量类型，示例如下：
+```gdscript
+@export var WALK_SPEED : float = 200.0
+@export var RUN_SPEED : float = 400.0
+var facing : String = "down"	
+var isWalking : bool = false
+```
 - 常量：大写下划线命名法`RUN_SPEED`
 - 函数：小驼峰命名法 `lowerCamelCase`，标出返回值，示例如下：
 ```gdscript
@@ -152,6 +157,10 @@ func handleAttack() -> void:
 		self.velocity = (RUN_SPEED if Input.is_action_pressed("奔跑") else WALK_SPEED) * direction
 
 ```
+
+- 类的私有属性：考虑到godot没有private概念，统一用下划线开头，例如：`_id`
+
+- *信号*：小写下划线命名法，由Manager调用，故需添加对应Manager的前缀，此后采用`主语_谓语`形式命名，示例：`battle_entity_damage`, `ui_update_hud`, `audio_sound_play`
 
 ## 注释（可选）
 遵循Godot官方文档注释，参见：[文档注释 | GDScript教程](https://godothub.com/oss/gdscript-tutorial/12.doc-comments.html)
