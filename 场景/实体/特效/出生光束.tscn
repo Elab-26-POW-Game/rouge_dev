@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3 uid="uid://cd2wdwddvqdnk"]
+
+[ext_resource type="Texture2D" uid="uid://c6s6wtbq18wgo" path="res://资产/图片/sprite/spawn_light.png" id="1_hctqq"]
+[ext_resource type="Script" uid="uid://bkln6xl5upm3n" path="res://脚本/实体/Vfx.gd" id="2_dcjol"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hctqq"]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g025v"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gao58"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjixd"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cwt6"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0r2k"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw8tj"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_honsa"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soiou"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwn5j"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmde0"]
+atlas = ExtResource("1_hctqq")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lc6av"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g025v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gao58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjixd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cwt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0r2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw8tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_honsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soiou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwn5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmde0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+material = SubResource("CanvasItemMaterial_hctqq")
+sprite_frames = SubResource("SpriteFrames_lc6av")
+autoplay = "default"
+frame = 9
+frame_progress = 1.0
+script = ExtResource("2_dcjol")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

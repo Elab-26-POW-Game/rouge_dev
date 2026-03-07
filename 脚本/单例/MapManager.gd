@@ -1,0 +1,2 @@
+# MapManager.gd
+extends Node
