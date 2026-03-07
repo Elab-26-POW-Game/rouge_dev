@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cd2wdwddvqdnk"]
 
 [ext_resource type="Texture2D" uid="uid://c6s6wtbq18wgo" path="res://资产/图片/sprite/spawn_light.png" id="1_hctqq"]
-[ext_resource type="Script" uid="uid://bkln6xl5upm3n" path="res://脚本/实体/Vfx.gd" id="2_dcjol"]
+[ext_resource type="Script" uid="uid://bkln6xl5upm3n" path="res://脚本/BaseClass/Vfx.gd" id="2_dcjol"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hctqq"]
 blend_mode = 1

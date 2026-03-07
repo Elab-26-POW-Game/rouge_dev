@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dk71vq2ipvx3j"]
 
-[ext_resource type="Script" uid="uid://bptrrinxwbpla" path="res://脚本/实体/Player.gd" id="1_r34h2"]
+[ext_resource type="Script" uid="uid://bptrrinxwbpla" path="res://脚本/BaseClass/Player.gd" id="1_r34h2"]
 [ext_resource type="Shader" uid="uid://bc22yctao1d8k" path="res://资产/shader/实体.gdshader" id="2_2l0gc"]
 [ext_resource type="SpriteFrames" uid="uid://7oekfv34euw4" path="res://资产/sprite_frame/主角.tres" id="2_r34h2"]
 [ext_resource type="Script" uid="uid://rajcj6dci177" path="res://脚本/特效/CameraHero.gd" id="3_qougq"]
