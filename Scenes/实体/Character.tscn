@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://gvxexw2e15t"]
+
+[ext_resource type="Script" uid="uid://cc4hvc3pbwo0k" path="res://Scripts/BaseClass/Character.gd" id="1_umrjb"]
+[ext_resource type="Script" uid="uid://m2jy1uqrrb10" path="res://Scripts/单例/FSM.gd" id="2_y7q61"]
+[ext_resource type="Script" uid="uid://ctfwdpwuqvhud" path="res://Scripts/BaseClass/Hitbox.gd" id="3_emliv"]
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_umrjb")
+metadata/_custom_type_script = "uid://cc4hvc3pbwo0k"
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("2_y7q61")
+metadata/_custom_type_script = "uid://m2jy1uqrrb10"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_emliv")

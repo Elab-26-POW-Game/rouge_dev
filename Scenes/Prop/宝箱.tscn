@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b44wl820ma8qi"]
+
+[ext_resource type="PackedScene" uid="uid://c30u1jncvwn01" path="res://Scenes/Template/Prop.tscn" id="1_4468o"]
+[ext_resource type="Texture2D" uid="uid://dvuq1in1h2kcn" path="res://Assets/图片/tileset/地牢/Objects_Overlay.png" id="1_mkpxl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4468o"]
+size = Vector2(20, 10.7204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bqn0"]
+atlas = ExtResource("1_mkpxl")
+region = Rect2(0, 24, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckkil"]
+atlas = ExtResource("1_mkpxl")
+region = Rect2(32, 24, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tnakv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bqn0")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckkil")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Box" instance=ExtResource("1_4468o")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, 5.96485)
+scale = Vector2(1.41045, 1.48593)
+shape = SubResource("RectangleShape2D_4468o")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_tnakv")
+animation = &"close"
+autoplay = "close"

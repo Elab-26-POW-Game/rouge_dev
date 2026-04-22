@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dwh3wj1obyeh2"]
+
+[ext_resource type="Texture2D" uid="uid://dvuq1in1h2kcn" path="res://Assets/图片/tileset/地牢/Objects_Overlay.png" id="1_1jsjg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s67gy"]
+atlas = ExtResource("1_1jsjg")
+region = Rect2(8, 118, 16, 58)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s67gy")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]

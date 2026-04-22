@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cww288c6hu04g"]
+
+[ext_resource type="FontFile" uid="uid://4glg5nxdtqbc" path="res://Assets/字体/纳米点宋.ttf" id="1_cwxdi"]
+[ext_resource type="Shader" uid="uid://dl4kfc7q62x6t" path="res://Assets/shader/界面_死亡.gdshader" id="1_sbt6f"]
+
+[sub_resource type="GDScript" id="GDScript_sbt6f"]
+script/source = "extends CanvasLayer
+
+\"\"\"构思动画
+var tween : Tween
+
+func _ready() -> void:
+	self.scale = Vector2(0.0, 0.0)
+	tween = get_tree().create_tween().bind_node(self).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(self, \"scale\", Vector2(1.0, 1.0), 0.5)
+\"\"\"
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pv7k1"]
+shader = ExtResource("1_sbt6f")
+shader_parameter/graph_switch = false
+shader_parameter/intensity = 0.6
+shader_parameter/blur = 3.0
+shader_parameter/diffusion = 0.4
+shader_parameter/zoom = 1.0
+shader_parameter/graph_type = 0
+shader_parameter/number = 8.0
+shader_parameter/size = 0.1
+shader_parameter/rotate_speed = 0.1
+shader_parameter/offset_speed = 0.1
+shader_parameter/angle = 0.7854
+shader_parameter/alpha = 0.1
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 0
+script = SubResource("GDScript_sbt6f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pv7k1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_cwxdi")
+theme_override_font_sizes/font_size = 128
+text = "死"

@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://1m1uhy2wquyx"]
-
-[ext_resource type="FontFile" uid="uid://4glg5nxdtqbc" path="res://资产/字体/纳米点宋.ttf" id="1_u6rbp"]
-
-[resource]
-default_font = ExtResource("1_u6rbp")
-default_font_size = 36

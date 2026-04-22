@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdu3nrkubgmpc"]
-
-[ext_resource type="Script" uid="uid://bjo3hmdf7iccu" path="res://脚本/Rooms.gd" id="1_1bc38"]
-
-[node name="地牢_第一层" type="Node2D"]
-script = ExtResource("1_1bc38")

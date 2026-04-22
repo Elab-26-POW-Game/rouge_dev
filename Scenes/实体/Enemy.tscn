@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c45uk81chror"]
+
+[ext_resource type="PackedScene" uid="uid://gvxexw2e15t" path="res://Scenes/实体/Character.tscn" id="1_u48xh"]
+[ext_resource type="Script" uid="uid://b1tpotlenskty" path="res://Scripts/BaseClass/Enemy.gd" id="2_4w0oj"]
+[ext_resource type="Script" uid="uid://cuufiyd5iq8p3" path="res://Scripts/实体/SlimeFSM.gd" id="3_1334v"]
+
+[node name="Enemy" instance=ExtResource("1_u48xh")]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("2_4w0oj")
+
+[node name="FSM" parent="." index="0"]
+script = ExtResource("3_1334v")
+
+[node name="NavigationTimer" type="Timer" parent="." index="4"]
+wait_time = 0.1
+autostart = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="5"]
+
+[node name="AttackTimer" type="Timer" parent="." index="7"]
+
+[connection signal="timeout" from="NavigationTimer" to="." method="_on_navigation_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
